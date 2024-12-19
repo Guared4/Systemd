@@ -232,7 +232,7 @@ root@vagrant:~# systemctl start nginx@first
 
 root@vagrant:~# systemctl status nginx@first
 ● nginx@first.service - A high performance web server and a reverse proxy server
-     Loaded: loaded (/etc/systemd/system/nginx@.service; disabled; vendor preset: enabled)
+     Loaded: loaded (/etc/systemd/system/nginx@.service; enabled; vendor preset: enabled)
      Active: active (running) since Thu 2024-12-19 12:56:41 UTC; 1min 53s ago
        Docs: man:nginx(8)
     Process: 1764 ExecStartPre=/usr/sbin/nginx -t -c /etc/nginx/nginx-first.conf -q -g daemon on; master_process on; (c>
@@ -253,7 +253,7 @@ root@vagrant:~# systemctl start nginx@second
 
 root@vagrant:~# systemctl status nginx@second
 ● nginx@second.service - A high performance web server and a reverse proxy server
-     Loaded: loaded (/etc/systemd/system/nginx@.service; disabled; vendor preset: enabled)
+     Loaded: loaded (/etc/systemd/system/nginx@.service; enabled; vendor preset: enabled)
      Active: active (running) since Thu 2024-12-19 12:56:49 UTC; 2min 37s ago
        Docs: man:nginx(8)
     Process: 1771 ExecStartPre=/usr/sbin/nginx -t -c /etc/nginx/nginx-second.conf -q -g daemon on; master_process on; (>
