@@ -13,6 +13,7 @@
 Для начала создаю файл с конфигурацией для сервиса в директории /etc/default - из неё сервис будет брать необходимые переменные.
 
 root@vagrant:~# nano /etc/default/watchlog
+
 root@vagrant:~# cat /etc/default/watchlogog
 # Configuration file for my watchlog service
 # Place it to /etc/default
@@ -69,10 +70,13 @@ Unit=watchlog.service
 WantedBy=multi-user.target
 
 Далее запустил service и timer:
+
 root@vagrant:~# systemctl enable watchlog.service
+
 root@vagrant:~# systemctl start watchlog.service
 
 root@vagrant:~# systemctl enable watchlog.timer
+
 root@vagrant:~# systemctl start watchlog.timer
 
 И убедился в результате:
