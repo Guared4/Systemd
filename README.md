@@ -90,8 +90,8 @@ Dec 19 08:11:00 vagrant root: Thu Dec 19 08:11:00 AM UTC 2024: I found word, Mas
 root@vagrant:~# apt install spawn-fcgi php php-cgi php-cli \
  apache2 libapache2-mod-fcgid -y
 ........
-Created symlink /etc/systemd/system/multi-user.target.wants/apache2.service → /lib/systemd/system/apache2.service.
-Created symlink /etc/systemd/system/multi-user.target.wants/apache-htcacheclean.service → /lib/systemd/system/apache-htcacheclean.service.
+Created symlink /etc/systemd/system/multi-user.target.wants/apache2.service > /lib/systemd/system/apache2.service.
+Created symlink /etc/systemd/system/multi-user.target.wants/apache-htcacheclean.service > /lib/systemd/system/apache-htcacheclean.service.
 Processing triggers for ufw (0.36.1-4ubuntu0.1) ...
 Processing triggers for man-db (2.10.2-1) ...
 Processing triggers for libc-bin (2.35-0ubuntu3.8) ...
@@ -133,11 +133,11 @@ WantedBy=multi-user.target
 Убеделся, что все успешно работает:
 
 root@vagrant:~# systemctl enable spawn-fcgi
-Created symlink /etc/systemd/system/multi-user.target.wants/spawn-fcgi.service → /etc/systemd/system/spawn-fcgi.service.
+Created symlink /etc/systemd/system/multi-user.target.wants/spawn-fcgi.service > /etc/systemd/system/spawn-fcgi.service.
 root@vagrant:~# systemctl start spawn-fcgi
 
 root@vagrant:~# systemctl status spawn-fcgi
-● spawn-fcgi.service - Spawn-fcgi startup service by Otus
+? spawn-fcgi.service - Spawn-fcgi startup service by Otus
      Loaded: loaded (/etc/systemd/system/spawn-fcgi.service; enabled; vendor preset: enabled)
      Active: active (running) since Thu 2024-12-19 10:43:32 UTC; 3min 42s ago
    Main PID: 58351 (php-cgi)
@@ -145,39 +145,39 @@ root@vagrant:~# systemctl status spawn-fcgi
      Memory: 14.0M
         CPU: 35ms
      CGroup: /system.slice/spawn-fcgi.service
-             ├─58351 /usr/bin/php-cgi
-             ├─58352 /usr/bin/php-cgi
-             ├─58353 /usr/bin/php-cgi
-             ├─58354 /usr/bin/php-cgi
-             ├─58355 /usr/bin/php-cgi
-             ├─58356 /usr/bin/php-cgi
-             ├─58357 /usr/bin/php-cgi
-             ├─58358 /usr/bin/php-cgi
-             ├─58359 /usr/bin/php-cgi
-             ├─58360 /usr/bin/php-cgi
-             ├─58361 /usr/bin/php-cgi
-             ├─58362 /usr/bin/php-cgi
-             ├─58363 /usr/bin/php-cgi
-             ├─58364 /usr/bin/php-cgi
-             ├─58365 /usr/bin/php-cgi
-             ├─58366 /usr/bin/php-cgi
-             ├─58367 /usr/bin/php-cgi
-             ├─58368 /usr/bin/php-cgi
-             ├─58369 /usr/bin/php-cgi
-             ├─58370 /usr/bin/php-cgi
-             ├─58371 /usr/bin/php-cgi
-             ├─58372 /usr/bin/php-cgi
-             ├─58373 /usr/bin/php-cgi
-             ├─58374 /usr/bin/php-cgi
-             ├─58375 /usr/bin/php-cgi
-             ├─58376 /usr/bin/php-cgi
-             ├─58377 /usr/bin/php-cgi
-             ├─58378 /usr/bin/php-cgi
-             ├─58379 /usr/bin/php-cgi
-             ├─58380 /usr/bin/php-cgi
-             ├─58381 /usr/bin/php-cgi
-             ├─58382 /usr/bin/php-cgi
-             └─58383 /usr/bin/php-cgi
+             +-58351 /usr/bin/php-cgi
+             +-58352 /usr/bin/php-cgi
+             +-58353 /usr/bin/php-cgi
+             +-58354 /usr/bin/php-cgi
+             +-58355 /usr/bin/php-cgi
+             +-58356 /usr/bin/php-cgi
+             +-58357 /usr/bin/php-cgi
+             +-58358 /usr/bin/php-cgi
+             +-58359 /usr/bin/php-cgi
+             +-58360 /usr/bin/php-cgi
+             +-58361 /usr/bin/php-cgi
+             +-58362 /usr/bin/php-cgi
+             +-58363 /usr/bin/php-cgi
+             +-58364 /usr/bin/php-cgi
+             +-58365 /usr/bin/php-cgi
+             +-58366 /usr/bin/php-cgi
+             +-58367 /usr/bin/php-cgi
+             +-58368 /usr/bin/php-cgi
+             +-58369 /usr/bin/php-cgi
+             +-58370 /usr/bin/php-cgi
+             +-58371 /usr/bin/php-cgi
+             +-58372 /usr/bin/php-cgi
+             +-58373 /usr/bin/php-cgi
+             +-58374 /usr/bin/php-cgi
+             +-58375 /usr/bin/php-cgi
+             +-58376 /usr/bin/php-cgi
+             +-58377 /usr/bin/php-cgi
+             +-58378 /usr/bin/php-cgi
+             +-58379 /usr/bin/php-cgi
+             +-58380 /usr/bin/php-cgi
+             +-58381 /usr/bin/php-cgi
+             +-58382 /usr/bin/php-cgi
+             L-58383 /usr/bin/php-cgi
 
 Dec 19 10:43:32 vagrant systemd[1]: Started Spawn-fcgi startup service by Otus.
 
@@ -225,7 +225,7 @@ WantedBy=multi-user.target
 
 root@vagrant:~# systemctl start nginx@first
 root@vagrant:~# systemctl status nginx@first
-● nginx@first.service - A high performance web server and a reverse proxy server
+? nginx@first.service - A high performance web server and a reverse proxy server
      Loaded: loaded (/etc/systemd/system/nginx@.service; disabled; vendor preset: enabled)
      Active: active (running) since Thu 2024-12-19 12:56:41 UTC; 1min 53s ago
        Docs: man:nginx(8)
@@ -236,16 +236,16 @@ root@vagrant:~# systemctl status nginx@first
      Memory: 3.2M
         CPU: 33ms
      CGroup: /system.slice/system-nginx.slice/nginx@first.service
-             ├─1766 "nginx: master process /usr/sbin/nginx -c /etc/nginx/nginx-first.conf -g daemon on; master_process >
-             ├─1767 "nginx: worker process" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" >
-             └─1768 "nginx: worker process" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" >
+             +-1766 "nginx: master process /usr/sbin/nginx -c /etc/nginx/nginx-first.conf -g daemon on; master_process >
+             +-1767 "nginx: worker process" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" >
+             L-1768 "nginx: worker process" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" >
 
 Dec 19 12:56:41 vagrant systemd[1]: Starting A high performance web server and a reverse proxy server...
 Dec 19 12:56:41 vagrant systemd[1]: Started A high performance web server and a reverse proxy server.
 
 root@vagrant:~# systemctl start nginx@second
 root@vagrant:~# systemctl status nginx@second
-● nginx@second.service - A high performance web server and a reverse proxy server
+? nginx@second.service - A high performance web server and a reverse proxy server
      Loaded: loaded (/etc/systemd/system/nginx@.service; disabled; vendor preset: enabled)
      Active: active (running) since Thu 2024-12-19 12:56:49 UTC; 2min 37s ago
        Docs: man:nginx(8)
@@ -256,9 +256,9 @@ root@vagrant:~# systemctl status nginx@second
      Memory: 3.3M
         CPU: 34ms
      CGroup: /system.slice/system-nginx.slice/nginx@second.service
-             ├─1773 "nginx: master process /usr/sbin/nginx -c /etc/nginx/nginx-second.conf -g daemon on; master_process>
-             ├─1774 "nginx: worker process" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" >
-             └─1775 "nginx: worker process" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" >
+             +-1773 "nginx: master process /usr/sbin/nginx -c /etc/nginx/nginx-second.conf -g daemon on; master_process>
+             +-1774 "nginx: worker process" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" >
+             L-1775 "nginx: worker process" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" >
 
 Dec 19 12:56:49 vagrant systemd[1]: Starting A high performance web server and a reverse proxy server...
 Dec 19 12:56:49 vagrant systemd[1]: Started A high performance web server and a reverse proxy server.
